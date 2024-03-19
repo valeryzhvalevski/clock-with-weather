@@ -37,19 +37,23 @@ function updateClock() {
   setInterval(updateClock, 1000);
   updateClock();
   
+
+
+  ///////////погода
   const clock = document.getElementById('clock')
   const weather = document.getElementById('weather')
   const actualWeather = document.getElementById('actual-weather')
 
-  weather.style.display = 'none'
-  clock.addEventListener('mouseover', () => {
-    weather.style.display = 'block'
-  })
-  clock.addEventListener('mouseout', () => {
-    weather.style.display = 'none'
-  })
+clock.addEventListener('mouseover', () => {
+  weather.classList.remove('none'); 
+});
 
-
+clock.addEventListener('mouseout', () => {
+  setTimeout(() => {
+    weather.classList.add('none');
+  }, 1500); 
+});
+    
   const city = "Minsk";
   const apiKey = "31e317c69034405b046f44f15c1886a1";
   
@@ -61,7 +65,7 @@ function updateClock() {
       .then(data => {
         const temperature = Math.round(data.main.temp);
         const weatherDescription = data.weather[0].description;
-        actualWeather.textContent = `${temperature}°C, ${weatherDescription}`;
+        actualWeather.textContent = `${temperature}°C и ${weatherDescription}`;
       })
       .catch(error => {
         console.error("Ошибка при получении данных о погоде:", error);

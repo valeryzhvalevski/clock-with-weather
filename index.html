@@ -1,50 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-    <style>
- body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 20vh;
-    }
-
-    #clock, #weather {
-      font-size: 3em;
-      color: #333;
-      background-color: #fff;
-      padding: 10px 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    #clock:hover {
-      transform: scale(1.1);
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    .blink {
-      animation: blink 1s infinite step-start;
-    }
-    /* #weather {
-        height: 200px;
-        background-color: aqua;
-    } */
-      </style>
-</head>
-<body>
-    <div id="clock"></div>
-    <div id="weather" >В Минске сейчас <span id="actual-weather"></span></div>
-
+  </head>
+  <body>
+    <div class="container">
+      <div id="clock"></div>
+      <div id="weather" class="none">
+        В Минске сейчас <span id="actual-weather"></span>
+      </div>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
