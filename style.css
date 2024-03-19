@@ -15,6 +15,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.container {
+  position: relative;
+}
 
 #clock {
   width: 270px;
@@ -38,7 +41,7 @@ body {
 }
 #weather {
   position: absolute;
-  top: 33%;
+  top: 100px;
   width: 270px;
   font-size: 2em;
   color: #333;
