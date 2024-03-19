@@ -1,5 +1,6 @@
 .none {
-opacity: 0;}
+  opacity: 0;
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -23,7 +24,7 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition:  1.5s ease-in-out;
+  transition: 1.5s ease-in-out;
 }
 
 @keyframes blink {
@@ -36,16 +37,16 @@ body {
   animation: blink 1s infinite step-start;
 }
 #weather {
-  position: relative;
-  top: 10px;
-    width: 270px;
-    font-size: 2em;
-    color: #333;
-    background-color: #ffffffb3;
-    padding: 10px 20px;
-    border-radius:10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: 0.5s ease-in-out;
+  position: absolute;
+  top: 33%;
+  width: 270px;
+  font-size: 2em;
+  color: #333;
+  background-color: #ffffffb3;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease-in-out;
 }
 
 #weather {
@@ -63,3 +64,9 @@ body {
   }
 }
 
+.weather-icon {
+  font-size: 4rem;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

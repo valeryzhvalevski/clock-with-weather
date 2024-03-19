@@ -54,22 +54,44 @@ clock.addEventListener('mouseout', () => {
   }, 1500); 
 });
     
-  const city = "Minsk";
-  const apiKey = "31e317c69034405b046f44f15c1886a1";
-  
-  function getWeatherByCity(city) {
+const city = "Minsk";
+const apiKey = "31e317c69034405b046f44f15c1886a1";
+
+function getWeatherByCity(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ru`;
-  
+
     fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        const temperature = Math.round(data.main.temp);
-        const weatherDescription = data.weather[0].description;
-        actualWeather.textContent = `${temperature}°C и ${weatherDescription}`;
-      })
-      .catch(error => {
-        console.error("Ошибка при получении данных о погоде:", error);
-      });
-  }
-  
-  getWeatherByCity(city);
+        .then(response => response.json())
+        .then(data => {
+            const temperature = Math.round(data.main.temp);
+            const weatherDescription = data.weather[0].description;
+
+            actualWeather.textContent = `${temperature}°C и ${weatherDescription}`;
+
+            displayWeatherIcon(weatherDescription);
+        })
+        .catch(error => {
+            console.error("Ошибка при получении данных о погоде:", error);
+        });
+}
+
+function displayWeatherIcon(weatherDescription) {
+    const weatherIconElement = document.getElementById('weather-icon');
+
+    const weatherIcons = {
+        'ясно': '☀️',
+        'малооблачно': '⛅',
+        'облачно с прояснениями': '🌤️',
+        'облачно': '☁️',
+        'пасмурно': '☁️',
+        'дождь': '🌧️',
+        'гроза': '⛈️',
+        'снег': '❄️',
+        'туман': '🌫️',
+    };
+    const weatherIcon = weatherIcons[weatherDescription] || '❓';
+
+    weatherIconElement.textContent = weatherIcon;
+}
+
+getWeatherByCity(city);
